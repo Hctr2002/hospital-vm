@@ -1,12 +1,14 @@
 package com.hospital_vm.cl.hospital_vm.service;
 
-import com.hospital_vm.cl.hospital_vm.model.Paciente;
-import com.hospital_vm.cl.hospital_vm.repository.PacienteRepository;
-import jakarta.transaction.Transactional;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.hospital_vm.cl.hospital_vm.model.Paciente;
+import com.hospital_vm.cl.hospital_vm.repository.PacienteRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
@@ -19,8 +21,8 @@ public class PacienteService {
         return pacienteRepository.findAll();
     }
 
-    public Paciente findById(Long id){
-        return pacienteRepository.findById(id);
+    public Paciente findById(long id){
+        return pacienteRepository.findById(id).get();
     }
 
     public Paciente save(Paciente paciente){
